@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="container body-content">
-            <asp:Label runat="server" ID="PageTitle"></asp:Label>
+            <h1 align="center"><span class="header"><asp:Label ID="PageTitle" runat="server"></asp:Label></span></h1>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

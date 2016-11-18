@@ -19,7 +19,7 @@ namespace Comp229_Assign03.Pages
             var studentID = Convert.ToInt32(Request.QueryString["id"]);
 
             // Named database as Comp229Assign03, replace with Assign03 before handing in
-            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Assign03;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Comp229Assign03;Integrated Security=True");
             SqlCommand loadStudents = new SqlCommand("Select * from Students", connection);
 
             //loadStudents.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
@@ -42,7 +42,9 @@ namespace Comp229_Assign03.Pages
 
         protected void Add_Student(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Assign03;Integrated Security=True");
+            var studentID = Convert.ToInt32(Request.QueryString["id"]);
+            
+            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Comp229Assign03;Integrated Security=True");
             SqlCommand addStudent = new SqlCommand("INSERT INTO Students VALUES (@StudentID, @FirstMidName, @LastName, @EnrollmentDate", connection);
 
             addStudent.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
@@ -65,38 +67,6 @@ namespace Comp229_Assign03.Pages
             Response.Redirect("~/Pages/StudentRepository.aspx");
         }
 
-        //protected void DeleteButton_Click(object sender, EventArgs e)
-        //{
-        //    var studentId = Convert.ToInt32(Request.QueryString["id"]);
-
-        //    // Named database as Comp229Assign03, replace with Assign03 before handing in
-        //    SqlConnection connection = new SqlConnection("Server=localhost\\SqlExpress;Database=Assign03;Integrated Security=True");
-        //    SqlCommand deleteFromEnroll = new SqlCommand("DELETE FROM Enrollments WHERE StudentID=@StudentID", connection);
-        //    SqlCommand deleteFromStudents = new SqlCommand("DELETE FROM Students WHERE StudentID=@StudentID", connection);
-
-        //    deleteFromEnroll.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
-        //    deleteFromEnroll.Parameters["@StudentID"].Value = studentId;
-
-        //    deleteFromStudents.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
-        //    deleteFromStudents.Parameters["@StudentID"].Value = studentId;
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        deleteFromEnroll.ExecuteNonQuery();
-        //        deleteFromStudents.ExecuteNonQuery();
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-
-        //    Response.Redirect("~/Pages/StudentRepository.aspx");
-        //}
-
-        protected void addStudentButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

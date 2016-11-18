@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div id="StudentPrinter">
+        <h1>School Of Blocks</h1>
         <asp:GridView ID="studentGridView" AutoGenerateColumns="false" runat="server">
         </asp:GridView>
 
