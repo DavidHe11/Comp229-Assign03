@@ -17,9 +17,8 @@ namespace Comp229_Assign03.Pages
         protected void Load_Students()
         {
             var studentID = Convert.ToInt32(Request.QueryString["id"]);
-
-            // Named database as Comp229Assign03, replace with Assign03 before handing in
-            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Comp229Assign03;Integrated Security=True");
+            
+            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Assign03;Integrated Security=True");
             SqlCommand loadStudents = new SqlCommand("Select * from Students", connection);
 
             //loadStudents.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
@@ -44,7 +43,7 @@ namespace Comp229_Assign03.Pages
         {
             var studentID = Convert.ToInt32(Request.QueryString["id"]);
             
-            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Comp229Assign03;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=localhost\\SqlExpress;Database=Assign03;Integrated Security=True");
             SqlCommand addStudent = new SqlCommand("INSERT INTO Students VALUES (@StudentID, @FirstMidName, @LastName, @EnrollmentDate", connection);
 
             addStudent.Parameters.Add("@StudentID", System.Data.SqlDbType.Int);
